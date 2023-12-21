@@ -6,7 +6,7 @@
 
 Yes, you should perform these Bundler update steps within your Rails application's directory, not in the home (`~`) directory. This is important because Bundler needs to access the `Gemfile` and `Gemfile.lock` specific to your Rails application. Here's how you should do it:
 
-## Verify the version of Rails used in an app
+## Verify the Rails version of an app
 
 <mark style="background-color:orange;">Note that the terminal commands will work only when you are inside the Rails application directory, otherwise, it will display the latest installed version of Rails on your system.</mark> If the application is using a different version specified in the Gemfile, it may not be accurate.
 
@@ -18,15 +18,17 @@ Yes, you should perform these Bundler update steps within your Rails application
 
 ***
 
-## Upgrade the Rails version for a Rails app
+## Upgrade the Rails version of an app
 
-Change the Rails version in the `Gemfile` of a Rails app, then run
+Step 1: Update the gem and its dependencies. Modify the Rails gem version in your Gemfile, then run:
 
 ```
 bundle update rails
 ```
 
-<mark style="background-color:red;">Some one said then run this command, I not sure yet.</mark>
+Bundler will update the Rails gem to the latest version specified in the Gemfile, along with all its dependencies. But it does not make any changes to the configuration files, initializers, or other Rails-specific files in your application.
+
+Step 2: Make sure your application's configuration and boilerplate code are up-to-date with the new Rails version, by running:
 
 ```
 bin/rails app:update
@@ -36,7 +38,7 @@ bin/rails app:update
 
 ***
 
-## Upgrade the Bundler version of a Rails app
+## Upgrade the Bundler version of an app
 
 It's important to ensure that the newer Bundler version is compatible with your Rails 7 app and other gem dependencies.&#x20;
 
@@ -49,7 +51,7 @@ It's important to ensure that the newer Bundler version is compatible with your 
     gem install bundler
     gem install bundler -v 2.4.13
     ```
-3.  **Go to your Rails application's root directory to update Gemfile.lock.**
+3.  Go to your Rails application's root directory to update Gemfile.lock.
 
     ```bash
     bundle update --bundler
@@ -64,7 +66,7 @@ It's important to ensure that the newer Bundler version is compatible with your 
 
 ***
 
-## Upgrade the gems of a Rails app&#x20;
+## Upgrade the gems of an app&#x20;
 
 1. Start by updating your `Gemfile`. For each gem, specify the latest version compatible with Rails 7. You might need to check each gem's documentation or repository for compatibility information.\
    <mark style="background-color:orange;">Update  gems incrementally. Avoid updating all gems at once</mark>, as this can introduce multiple breaking changes that are hard to debug. <mark style="background-color:orange;">Update one or a few gems at a time</mark>, then test your application to ensure it still works as expected.
@@ -87,17 +89,18 @@ It's important to ensure that the newer Bundler version is compatible with your 
 
 To upgrade Ruby on macOS using Homebrew:
 
-1.  **Update Homebrew** to make sure you have the latest formulae for Ruby.&#x20;
+**Update Homebrew** to make sure you have the latest formulae for Ruby.&#x20;
 
-    ```bash
-    brew update
-    ```
-2.  **U**pgrade Ruby to the latest version available in Homebrew:
+```bash
+brew update
+```
 
-    ```bash
-    brew upgrade ruby // or 
-    brew upgrade ruby@3.3.0
-    ```
+**U**pgrade Ruby to the latest version available in Homebrew:
+
+```bash
+brew upgrade ruby // or 
+brew upgrade ruby@3.3.0
+```
 
 ## Upgrade Rails and all gems on macOS to the newest version
 
