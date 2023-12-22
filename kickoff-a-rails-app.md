@@ -186,23 +186,6 @@ Rails Environment and Versions
 
 ### Set up a new environment of Rails
 
-\# Upgrade ruby version to the newest
-
-$ brew upgrade ruby
-
-#### RubyGems
-
-\# To update to its latest version with:
-
-$ gem update --system
-
-\# Error: can't find gem bundler (= 2.4.13) with executable bundle
-
-$ gem i bundler -v 2.4.13
-
-\# To update all gems or a particular gem:
-
-$ gem update \[\<gemname>]\
 
 
 \# To install a gem (Ruby package), run:

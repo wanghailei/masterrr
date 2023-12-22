@@ -6,7 +6,7 @@ description: Ruby tools and Rails tools.
 
 ## Bundler
 
-Bundler: a gem to bundle gems.
+<mark style="background-color:orange;">Bundler: a gem to bundle gems.</mark>
 
 Bundler is not a technology specific to Rails, but it is the way to manage your application’s Rubygem dependencies. One of the most important things that Bundler does is dependency resolution on the full list of gems specified in your configuration, all at once.
 
@@ -16,7 +16,7 @@ It does this by managing the gems that the application depends on. Bundler provi
 
 Starting work on a project is as simple as bundle install.
 
-<mark style="color:blue;">% 應該說，Bundler 是團隊開發協作用的。20230619 %</mark>
+<mark style="background-color:red;">% 應該說，Bundler 是團隊開發協作用的。20230619 %</mark>
 
 Given a list of gems, it can automatically download and install those gems, as well as any other gems needed by the gems that are listed. Before installing gems, it checks the versions of every gem to make sure that they are compatible, and can all be loaded at the same time.
 
@@ -30,8 +30,7 @@ Bundler is also an easy way to create new gems. Just like you might create a sta
 
 ## Gemfile
 
-A Gemfile describes the gem dependencies required to execute associated Ruby code.\
-
+A Gemfile describes the gem dependencies required to execute associated Ruby code.
 
 Place the Gemfile in the root of the directory containing the associated code.
 

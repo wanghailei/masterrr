@@ -1,10 +1,69 @@
 # Upgrade
 
+**Setup an up-to-date environment for developing webpps with Ruby on Rails.**
+
+<mark style="background-color:red;">**Step by step, and use version control!**</mark> <mark style="background-color:red;"></mark><mark style="background-color:red;">Use Git to track changes after each step.</mark>
 
 
-<mark style="background-color:orange;">**Step by step, and use version control!**</mark> <mark style="background-color:orange;"></mark><mark style="background-color:orange;">Use Git to track changes after each step.</mark>
 
-Yes, you should perform these Bundler update steps within your Rails application's directory, not in the home (`~`) directory. This is important because Bundler needs to access the `Gemfile` and `Gemfile.lock` specific to your Rails application. Here's how you should do it:
+First, the tools' value and relationship need to be understand.\
+RubyGems belongs to Ruby. RubyGems manages many Gems.\
+Bundler is a Gem. Rails is a Gem.
+
+## Bundler
+
+<mark style="background-color:orange;">Bundler is not a technology specific to Rails.</mark> Bundler is a dependency management tool for Ruby. <mark style="background-color:orange;">Bundler is a gem to bundle gems.</mark> It is an exit from dependency hell.&#x20;
+
+Bundler makes sure a Ruby app run the same code on every development, staging, and production machine. <mark style="background-color:orange;">It records the exact versions that have been installed, so that others can install the exact same gems.</mark> <mark style="background-color:red;">% 應該說，Bundler 是團隊開發協作用的。20230619 %</mark>
+
+### How Bundler works
+
+Given the gems listed in the Gemfile of a Ruby app, Bundler checks the versions of every gem to make sure that they are compatible, and can all be loaded at the same time.
+
+Bundler then download and install those gems, as well as any other gems needed by the gems that are listed.  <mark style="background-color:orange;">It creates a file called Gemfile.lock with the list of the gems installed along with their respective versions.</mark>
+
+It will requires them while booting.
+
+After the gems have been installed, Bundler can help you update them when new versions become available.
+
+Bundler is also an easy way to create new gems.&#x20;
+
+## Gemfile
+
+A Gemfile describes the gem dependencies required to execute associated Ruby code. A Gemfile is evaluated as Ruby code. Place the Gemfile in the root of the directory containing the associated code.
+
+## RubyGems
+
+RubyGems is a package management framework for Ruby.
+
+The RubyGems software allows you to easily download, install, and use ruby software packages on your system. The software package is called <mark style="background-color:orange;">a “gem” which contains a packaged Ruby application or library.</mark>
+
+Gems can be used to extend or modify functionality in Ruby applications. Commonly they’re used to distribute **reusable functionality** that is shared with other Rubyists for use in their applications and libraries.
+
+
+
+***
+
+## Upgrade Ruby to the latest version on macOS
+
+**Update Homebrew** to make sure you have the latest formulae for Ruby.&#x20;
+
+```bash
+brew update
+```
+
+**U**pgrade Ruby to the latest version available in Homebrew:
+
+```bash
+brew upgrade ruby
+brew upgrade ruby@3.3.0 // or to a specific version.
+```
+
+
+
+***
+
+The Bundler update steps should be performed within the Rails app's directory, not in the home (`~`) directory. This is important because Bundler needs to access the `Gemfile` and `Gemfile.lock` specific to your Rails application.&#x20;
 
 ## Verify the Rails version of an app
 
@@ -15,6 +74,8 @@ Yes, you should perform these Bundler update steps within your Rails application
 2\. Via the command line:cIn the terminal, navigate to the directory of your Rails app and use the command `rails -v` . This will display the current version of Rails the application is using.
 
 3\. Via the Rails console: Another option is to open the Rails console with the command rails console or `rails c`, then print the Rails version with `Rails.version`.
+
+
 
 ***
 
@@ -28,7 +89,7 @@ bundle update rails
 
 Bundler will update the Rails gem to the latest version specified in the Gemfile, along with all its dependencies. But it does not make any changes to the configuration files, initializers, or other Rails-specific files in your application.
 
-Step 2: Make sure your application's configuration and boilerplate code are up-to-date with the new Rails version, by running:
+Make sure your application's configuration and boilerplate code are up-to-date with the new Rails version, by running:
 
 ```
 bin/rails app:update
@@ -66,6 +127,10 @@ It's important to ensure that the newer Bundler version is compatible with your 
 
 ***
 
+## **Update RubyGems itself**
+
+`gem update --system`
+
 ## Upgrade the gems of an app&#x20;
 
 1. Start by updating your `Gemfile`. For each gem, specify the latest version compatible with Rails 7. You might need to check each gem's documentation or repository for compatibility information.\
@@ -85,26 +150,25 @@ It's important to ensure that the newer Bundler version is compatible with your 
 
 ***
 
-## Upgrade OS Ruby to the newest version
-
-To upgrade Ruby on macOS using Homebrew:
-
-**Update Homebrew** to make sure you have the latest formulae for Ruby.&#x20;
-
-```bash
-brew update
-```
-
-**U**pgrade Ruby to the latest version available in Homebrew:
-
-```bash
-brew upgrade ruby // or 
-brew upgrade ruby@3.3.0
-```
-
 ## Upgrade Rails and all gems on macOS to the newest version
 
 ```
-gem update // or
-gem update rails
+gem update // updates all gems installed
+gem update rails // updates a particular gem
 ```
+
+#### RubyGems
+
+\# To update to its latest version with:
+
+$ gem update --system
+
+\# Error: can't find gem bundler (= 2.4.13) with executable bundle
+
+$ gem i bundler -v 2.4.13
+
+\
+
+
+
+
