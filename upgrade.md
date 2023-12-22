@@ -1,14 +1,16 @@
 # Upgrade
 
-**Setup an up-to-date environment for developing webpps with Ruby on Rails.**
+<mark style="background-color:red;">**Upgrade step by step, and use version control!**</mark> <mark style="background-color:red;"></mark><mark style="background-color:red;">Use Git to track changes after each step.</mark>
 
-<mark style="background-color:red;">**Step by step, and use version control!**</mark> <mark style="background-color:red;"></mark><mark style="background-color:red;">Use Git to track changes after each step.</mark>
+***
 
+**Setup an up-to-date environment for developing webpps with Ruby on Rails.** First, the tools' value and relationship need to be understood.
 
-
-First, the tools' value and relationship need to be understand.\
-RubyGems belongs to Ruby. RubyGems manages many Gems.\
-Bundler is a Gem. Rails is a Gem.
+\
+RubyGems belongs to Ruby. \
+RubyGems manages many Gems.\
+Bundler is a Gem. \
+Rails is a Gem.
 
 ## Bundler
 
@@ -18,27 +20,25 @@ Bundler makes sure a Ruby app run the same code on every development, staging, a
 
 ### How Bundler works
 
-Given the gems listed in the Gemfile of a Ruby app, Bundler checks the versions of every gem to make sure that they are compatible, and can all be loaded at the same time.
+First, given the gems listed in the Gemfile of a Ruby app, Bundler checks the versions of every gem to make sure that they are compatible, and can all be loaded at the same time.
 
-Bundler then download and install those gems, as well as any other gems needed by the gems that are listed.  <mark style="background-color:orange;">It creates a file called Gemfile.lock with the list of the gems installed along with their respective versions.</mark>
+Then, Bundler downloads and installs those gems, as well as any other gems needed by the gems that are listed.  And <mark style="background-color:orange;">it creates a file called Gemfile.lock with the list of the gems installed along with their respective versions.</mark>
 
-It will requires them while booting.
+It will require them while booting.
 
-After the gems have been installed, Bundler can help you update them when new versions become available.
-
-Bundler is also an easy way to create new gems.&#x20;
+After the gems have been installed, Bundler can help you update them when new versions become available. Bundler is also an easy way to create new gems.&#x20;
 
 ## Gemfile
 
 A Gemfile describes the gem dependencies required to execute associated Ruby code. A Gemfile is evaluated as Ruby code. Place the Gemfile in the root of the directory containing the associated code.
 
+<mark style="background-color:orange;">The Gemfile is indeed related to Bundler and not directly to RubyGemsRubyGems itse.</mark>
+
 ## RubyGems
 
-RubyGems is a package management framework for Ruby.
+RubyGems is a package management framework for Ruby. Commonly gems are used to distribute **reusable functionality** that is shared with other Rubyists for use in their applications and libraries.
 
 The RubyGems software allows you to easily download, install, and use ruby software packages on your system. The software package is called <mark style="background-color:orange;">a “gem” which contains a packaged Ruby application or library.</mark>
-
-Gems can be used to extend or modify functionality in Ruby applications. Commonly they’re used to distribute **reusable functionality** that is shared with other Rubyists for use in their applications and libraries.
 
 
 
