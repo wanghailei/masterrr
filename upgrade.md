@@ -63,8 +63,6 @@ brew upgrade ruby@3.3.0 // or to a specific version.
 
 ***
 
-The Bundler update steps should be performed within the Rails app's directory, not in the home (`~`) directory. This is important because Bundler needs to access the `Gemfile` and `Gemfile.lock` specific to your Rails application.&#x20;
-
 ## Verify the Rails version of an app
 
 <mark style="background-color:orange;">Note that the terminal commands will work only when you are inside the Rails application directory, otherwise, it will display the latest installed version of Rails on your system.</mark> If the application is using a different version specified in the Gemfile, it may not be accurate.
@@ -78,6 +76,8 @@ The Bundler update steps should be performed within the Rails app's directory, n
 
 
 ***
+
+The Bundler update steps should be performed within the Rails app's directory, not in the home (`~`) directory. This is important because Bundler needs to access the `Gemfile` and `Gemfile.lock` specific to your Rails application.&#x20;
 
 ## Upgrade the Rails version of an app
 
