@@ -102,3 +102,12 @@ Keep in mind that most of the arithmetic operators you see in Ruby are methods. 
 
 If you define, say, a method called + in a class of your own, you can use the operator’s syntactic sugar.\
 And if you see arithmetic operators behaving weirdly, it may be that someone has redefined their underlying methods.
+
+
+
+***
+
+**Encapsulation** describes the fact that an object contains both its own data and the methods required to manipulate that data.
+
+**Polymorphism** describes the ability to have different classes containing methods with the same name. The same “message” (such as talk) can be sent to different objects (such as cats and dogs), and each different object responds differently to the same message with its own special method (here the talk method).&#x20;
+
