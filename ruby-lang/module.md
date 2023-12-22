@@ -9,3 +9,41 @@ Module constants are referenced using the module name followed by two colons, wh
 A module can’t have instances, because a module isn’t a class. &#x20;
 
 You can `include` a module within a class definition. When this happens, all the module’s instance methods are suddenly available as instance methods in the class as well. This si called mixin.
+
+
+
+
+
+***
+
+## `Module#autoload`
+
+<mark style="background-color:orange;">`Module#autoload`</mark> <mark style="background-color:orange;"></mark><mark style="background-color:orange;">allows you to load constants on demand.</mark>
+
+<mark style="background-color:orange;">`Module#autoload`</mark> <mark style="background-color:orange;"></mark><mark style="background-color:orange;">is a method in Ruby that allows you to defer the loading of a module or class until it is first used.</mark> This can be beneficial for reducing the startup time of a Ruby program.
+
+Here's how `Module#autoload` works:
+
+1. **Definition:** You specify a constant name and the name of a file to be loaded. The constant serves as a placeholder for the module or class you want to autoload.
+2. **Usage:** When the constant is first accessed in the code, Ruby automatically loads the specified file. This is done only once, the first time the constant is accessed.
+3. **Syntax:** The method is used like this: `autoload :ModuleName, 'path/to/file'`. Here, `:ModuleName` is the name of the constant that will be used as a placeholder for the module or class, and `'path/to/file'` is the file path (relative or absolute) where the actual definition of the module or class is located.
+
+Here is an example:
+
+```ruby
+module MyModule
+    autoload :MySubmodule, 'path/to/my_submodule'
+end
+# At this point, MySubmodule is not yet loaded.
+# Later in the program...
+MyModule::MySubmodule.do_something # This line will trigger the loading of 'path/to/my_submodule'
+```
+
+In this example, `MySubmodule` will only be loaded when it is first accessed via `MyModule::MySubmodule.do_something`.
+
+**Important Notes:**
+
+* **Thread Safety:** Autoloading in Ruby is not thread-safe in versions before Ruby 3.0. This means that care should be taken in multi-threaded environments. Ruby 3.0 introduced improvements to make constant autoloading thread-safe.
+* **Rails and Zeitwerk:** In the context of Rails applications, especially from Rails 6 onwards, the Zeitwerk code loader is used. Zeitwerk handles code loading in a more sophisticated way, making the explicit use of `autoload` less common in modern Rails applications.
+
+`Module#autoload` is a powerful feature for managing dependencies and resources efficiently in larger Ruby applications. However, its use requires careful consideration of the application's structure and the execution environment.
