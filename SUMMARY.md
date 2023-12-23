@@ -20,7 +20,6 @@
   * [Type](ruby-lang/type.md)
   * [Constant](ruby-lang/constant-1.md)
   * [Class](ruby-lang/class.md)
-  * [Constant](ruby-lang/constant-1.md)
   * [Module](ruby-lang/module.md)
   * [Variable 承值容器](ruby-lang/variable-cheng-zhi-rong-qi.md)
   * [Symbol](ruby-lang/symbol.md)
