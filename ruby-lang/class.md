@@ -85,11 +85,3 @@ Why create a class method rather than the more usual instance method? There are 
 
 
 
-***
-
-## Class Variable
-
-A class variable must be given a value when it is first declared
-
-
-

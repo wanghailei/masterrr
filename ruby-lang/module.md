@@ -47,3 +47,16 @@ In this example, `MySubmodule` will only be loaded when it is first accessed via
 * **Rails and Zeitwerk:** In the context of Rails applications, especially from Rails 6 onwards, the Zeitwerk code loader is used. Zeitwerk handles code loading in a more sophisticated way, making the explicit use of `autoload` less common in modern Rails applications.
 
 `Module#autoload` is a powerful feature for managing dependencies and resources efficiently in larger Ruby applications. However, its use requires careful consideration of the application's structure and the execution environment.
+
+
+
+***
+
+In Ruby, the `extend` keyword is used to add methods from a module to a single object, typically an instance of a class or the class itself.&#x20;
+
+When  `extend` a module in a class, the module's methods are added <mark style="background-color:orange;">as class methods of the target class</mark>.&#x20;
+
+When `include` a module into a class, the module's methods are added <mark style="background-color:orange;">as instance methods of the class</mark>.
+
+
+

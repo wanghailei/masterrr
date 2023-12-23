@@ -36,17 +36,13 @@ class MyClass
 end
 ```
 
-
-
-##
-
-##
-
 ##
 
 ## Class Variables
 
-GitHub Copilot: Class variables are typically defined at the class level, outside of any methods.&#x20;
+<mark style="background-color:orange;">A class variable must be given a value when it is first declared</mark>.
+
+GitHub Copilot: <mark style="background-color:orange;">Class variables are typically defined at the class level, outside of any methods</mark>.&#x20;
 
 ```ruby
 class MyClass
@@ -100,8 +96,5 @@ GitHub Copilot: In Ruby, an instance variable defined outside of the initialize 
 
 Here's a table that compares class variables, instance variables, and class instance variables in Ruby:
 
-| Variable Type                     | Definition                                                                                           | Scope                                                  | Shared by Subclasses | Prefix |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------- | ------ |
-| <p>Class<br>Variable</p>          | A variable that is shared by all instances of a class and its subclasses.                            | Defined at the class level, outside of any methods.    | Yes                  | @@     |
-| Instance Variable                 | A variable that is unique to each instance of a class.                                               | Defined within methods, such as the initialize method. | No                   | @      |
-| <p>Class<br>Instance Variable</p> | A variable that is shared by all instances of a class, but is not shared by subclasses of the class. | Defined at the class level, outside of any methods.    | No                   | @      |
+<table data-header-hidden><thead><tr><th width="113"></th><th width="215"></th><th width="208"></th><th width="127"></th><th></th></tr></thead><tbody><tr><td>Variable Type</td><td>Definition</td><td>Scope</td><td>Shared by Subclasses</td><td>Prefix</td></tr><tr><td>Class<br>Variable</td><td>A variable that is shared by all instances of a class and its subclasses.</td><td>Defined at the class level, outside of any methods.</td><td>Yes</td><td>@@</td></tr><tr><td>Instance Variable</td><td>A variable that is unique to each instance of a class.</td><td>Defined within methods, such as the initialize method.</td><td>No</td><td>@</td></tr><tr><td>Class<br>Instance Variable</td><td>A variable that is shared by all instances of a class, but is not shared by subclasses of the class.</td><td>Defined at the class level, outside of any methods.</td><td>No</td><td>@</td></tr></tbody></table>
+
