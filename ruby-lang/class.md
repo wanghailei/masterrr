@@ -80,3 +80,16 @@ A class method belongs to the class itself.
 ### What Are Class Methods For?&#x20;
 
 Why create a class method rather than the more usual instance method? There are two main reasons: First, a class method can <mark style="background-color:orange;">be used as a “ready-to-run function” without having to go to the bother of creating an object just to use it</mark>, and second, <mark style="background-color:orange;">it can be used on those occasions when you need to run a method before an object has been created</mark>.
+
+
+
+
+
+***
+
+## Class Variable
+
+A class variable must be given a value when it is first declared
+
+
+
