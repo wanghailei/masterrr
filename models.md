@@ -110,7 +110,7 @@ The column types supported by migrations are:
 
 `:binary`
 
-<mark style="color:blue;">% 一般地，我就統一使用 def change，不使用 up 和 down。%</mark>
+<mark style="background-color:red;">% 一般地，我就統一使用 def change，不使用 up 和 down。%</mark>
 
 **creating and dropping tables:**
 

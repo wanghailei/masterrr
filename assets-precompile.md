@@ -1,32 +1,28 @@
 # Assets Precompile
 
-<mark style="color:blue;">% Assets Pipeline 讓網頁的各種素材加載更快，並確保加在最新的素材，且適應不同瀏覽器。這可以被看作是一個自動化輔助工具，跟開發其實沒什麼關係，提前設置好了就行。20231129 %</mark>
+<mark style="background-color:red;">% Assets Pipeline 讓網頁的各種素材加載更快，並確保加在最新的素材，且適應不同瀏覽器。這可以被看作是一個自動化輔助工具，跟開發其實沒什麼關係，提前設置好了就行。20231129 %</mark>
 
 ## What does an asset pipeline do?
 
 An asset pipeline:
 
-\- improves page loading speed, by minifying and compressing assets.
-
-\- reduces the number of browser HTTP requests, by combining multiple files into one.
-
-\- ensures browsers load the newest version of the assets, by appending a digest to filenames.
-
-\- ensuring cross-browser compatibility, by adding vendor prefixes to CSS.
+* improves page loading speed, by minifying and compressing assets.
+* reduces the number of browser HTTP requests, by combining multiple files into one.
+* ensures browsers load the newest version of the assets, by appending a digest to filenames.
+* ensuring cross-browser compatibility, by adding vendor prefixes to CSS.
 
 In development mode, an asset pipeline
 
-1\. compiles assets from languages like SCSS, Sass, or CoffeeScript into CSS and JavaScript, which browsers can understand.
-
-2\. automatically compile and refresh assets as they are updated, which speeds up the development process.
-
-
+* compiles assets from languages like SCSS, Sass, or CoffeeScript into CSS and JavaScript, which browsers can understand.
+* automatically compile and refresh assets as they are updated, which speeds up the development process.
 
 Propshaft is one of the modern asset pipeline.
 
-Useful tips in development:
 
-The application.js and application.css manifest files are the only JavaScript/Stylesheets included during the asset pipeline precompile step. To include additional assets, specify them using the config.assets.precompile configuration setting in config/initializers/assets.rb:
+
+## Useful tips in development:
+
+The application.js and application.css manifest files are the only JavaScript/Stylesheets included during the asset pipeline precompile step. To include additional assets, specify them using the `config.assets.precompile` configuration setting in config/initializers/assets.rb:
 
 `config.assets.precompile += %w( admin.js admin.css )`
 
@@ -36,7 +32,7 @@ The application.js and application.css manifest files are the only JavaScript/St
 
 Always remember to restart your development server and potentially recompile your assets after making changes to CSS or JavaScript files.
 
-#### Why do I get application.css not in asset pipeline in production?
+#### Why do I get "application.css not in asset pipeline" in production?
 
 A common issue is that your repository does not contain the output directory used by the build commands. You must have app/assets/builds available. Add the directory with a .gitkeep file, and you'll ensure it's available in production.
 
@@ -70,7 +66,7 @@ You can configure your bundler options in the build:css script in package.json o
 
 ### Tailwind CSS
 
-我認為，可以用tailwind-rails。
+我認為，可以用tailwind-rails。但只是為了把其特殊的一些class 提取出來。
 
 `Error:`\
 `ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.)`
@@ -79,35 +75,7 @@ Solution:
 
 `rails assets:clean assets:precompile`
 
-<mark style="color:blue;">% Remember to restart the Rails server to see effect. 20230613 %</mark>
-
-###
-
-***
-
-### Bulma
-
-#### Bulma vs. Bootstrap
-
-Bulma provides a bit more flexibility for customization compared to Bootstrap. in addition, its modular structure provides more control over individual projects. Unlike Bootstrap, Bulma permits users to import only the modules required for desired features, omitting any that aren’t necessary.
-
-Unlike Bootstrap, Bulma is CSS only. It doesn’t include inbuilt JavaScript or jQuery. Adding a basic feature in Bulma that requires the use of JavaScript or jQuery, such as a toggle, necessitates writing a custom script.
-
-#### Bulma vs. Tailwind CSS
-
-They both aim to simplify UI development, but each takes a fundamentally different approach toward addressing this issue.
-
-Tailwind allows the developer to make significant decisions on how the interface should look. Meanwhile, Bulma makes most of those decisions for the developer, offering inbuilt modules to enable quick development.
-
-Bulma, on the other hand, comes with prefabricated components like other traditional CSS frameworks, including Bootstrap and MUI (formerly Material UI).
-
-Bulma provides a ready to use template, while Tailwind provides all the tools needed for a developer to build their own template.
-
-Both Bootstrap and Bulma function like rapid interface development UI kits.
-
-Bulma also offers a high level of flexibility, allowing for ease of customization on the part of the developer. This is in contrast to similar frameworks, like Bootstrap, that make customization fairly complex. This complexity is why most Bootstrap developers use the framework’s default template, and most Boostrap sites have a very similar look.
-
-
+<mark style="background-color:red;">% Remember to restart the Rails server to see effect. 20230613 %</mark>
 
 
 
@@ -115,15 +83,13 @@ Bulma also offers a high level of flexibility, allowing for ease of customizatio
 
 ## Import Maps
 
-Import Maps manage your application's JavaScript dependencies.
+Import Maps manage your application's JavaScript dependencies. <mark style="background-color:orange;">Import Maps make using most npm packages without the need for transpiling or bundling,</mark> by importing JavaScript modules using logical names that map to versioned/digested files – directly from the browser.
 
-Import Maps make using most npm packages without the need for transpiling or bundling, by importing JavaScript modules using logical names that map to versioned/digested files – directly from the browser.
+<mark style="background-color:orange;">When using Import Maps, no separate build process is required</mark>, just start your server with `bin/rails server` and you are good to go.
 
-When using Import Maps, no separate build process is required, just start your server with bin/rails server and you are good to go.
+<mark style="background-color:orange;">Import maps are a browser feature that allows you to control the behaviour of JavaScript imports</mark>. They provide a way to map import specifiers (like module names) to actual URLs, enabling you to:
 
-Import maps are a browser feature that allows you to control the behavior of JavaScript imports. They provide a way to map import specifiers (like module names) to actual URLs, enabling you to:
-
-Simplify Module Paths: You can shorten or simplify paths to JavaScript modules. Instead of using long or complex URLs in your import statements, you can define a short, easy-to-remember name.
+**Simplify Module Paths**: You can shorten or simplify paths to JavaScript modules. Instead of using long or complex URLs in your import statements, you can define a short, easy-to-remember name.
 
 By mapping a module to a specific URL, you can easily switch versions of a module or update the path for cache busting without changing the import statement in every file where the module is used.
 
@@ -139,13 +105,13 @@ Import maps are part of the larger effort to make JavaScript modules more usable
 
 They reduce the complexity and improve the manageability of module imports, especially in larger web applications.
 
-Import Maps are the default in Rails 7+.
+<mark style="background-color:orange;">Import Maps are the default in Rails 7+.</mark>
 
 Import maps are a feature provided by browsers, namely, the capability to interpret and apply import maps is built into the browser. This means the browser understands the import map syntax and how to process it when loading JavaScript modules. But they are configured and used by app developers. Here's how it works:
 
 App developers create and include import maps in their web applications.
 
-An import map is essentially a JSON object that defines mappings between import specifiers (like module names or paths) and the actual URLs where these modules can be found.
+<mark style="background-color:orange;">An import map is essentially a JSON object that defines mappings between import specifiers (like module names or paths) and the actual URLs where these modules can be found.</mark>
 
 Usage in Applications: When a web application using import maps is loaded in a browser that supports this feature, the browser reads the import map and uses it to resolve module paths according to the mappings defined by the developer. This process is transparent to the end user.
 
