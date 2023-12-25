@@ -44,9 +44,9 @@ The RubyGems software allows you to easily download, install, and use ruby softw
 
 ***
 
-## Upgrade Ruby to the latest version on macOS
+## Upgrade Ruby
 
-**Update Homebrew** to make sure you have the latest formulae for Ruby.&#x20;
+**Update Homebrew** to the latest version on macOS&#x20;
 
 ```bash
 brew update
