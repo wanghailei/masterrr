@@ -1,10 +1,17 @@
 # Module
 
+Modules are a way of grouping together methods, classes, and constants. Modules give you two major benefits:&#x20;
 
+* Modules provide a namespace and prevent name clashes.&#x20;
+* Modules can be included in other classes, a facility known as a mixin.
+
+Like a class, a module name is also global constants.&#x20;
+
+Module methods are defined like class methods, using the `def self.method_name` syntax.As with class methods, you call a module method is called by preceding its name with the module’s name and a period.
 
 As with class methods, you call a module method by preceding its name with the module’s name and a period, like `ActiveSupport.run_load_hooks(:active_record, Base)`
 
-Module constants are referenced using the module name followed by two colons, which is called the scope resolution operator
+Module constants are referenced using the module name followed by two colons, which is called the scope resolution operator, like Active
 
 A module can’t have instances, because a module isn’t a class. &#x20;
 

@@ -1,8 +1,10 @@
 # Table of contents
 
-* [README.md](README.md)
+* [Prologue](README.md)
+* [README.md](<README (1).md>)
 * [Upgrade](upgrade.md)
-* [Kickoff a Rails app](kickoff-a-rails-app.md)
+* [Upgrade](upgrade-1.md)
+* [Upgrade a Rails app](upgrade-a-rails-app.md)
 * [Rails Structure](rails-structure/README.md)
   * [The Rails code structure](rails-structure/the-rails-code-structure.md)
 * [Models](models.md)

@@ -1,4 +1,4 @@
-# Kickoff a Rails app
+# Upgrade a Rails app
 
 ## 2. rails new
 
