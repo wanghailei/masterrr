@@ -26,7 +26,7 @@
   * [Reading Rails' source code](ruby-lang/reading-rails-source-code.md)
 * [Test](test.md)
 * [Database](database/README.md)
-  * [Compare Databases](database/compare-databases.md)
+  * [PostgreSQL vs MySQL](database/postgresql-vs-mysql.md)
 * [Tools](tools/README.md)
   * [Container](tools/container.md)
   * [Rack](tools/rack.md)

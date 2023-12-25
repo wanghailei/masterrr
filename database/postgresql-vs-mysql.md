@@ -1,6 +1,6 @@
-# Compare Databases
+# PostgreSQL vs MySQL
 
-<mark style="background-color:green;">% 停止探索、掙扎用哪個數據庫，就用 PostgreSQL。20231129 %</mark>
+<mark style="background-color:red;">% 停止探索、掙扎用哪個數據庫，就用 PostgreSQL。20231129 %</mark>
 
 
 
@@ -8,15 +8,51 @@
 
 ### Normalization Principles
 
-Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. The goal is to divide your database schema into smaller tables and define relationships between them to increase the clarity, efficiency, and scalability of your database.
+Normalisation is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. <mark style="background-color:orange;">The goal is to divide your database schema into smaller tables and define relationships between them to increase the clarity, efficiency, and scalability of your database.</mark>
 
-It's important to note that while normalization helps to reduce data redundancy and improve data integrity, it can sometimes lead to more complex queries due to the need for more JOIN operations.
+***
 
-ChatGPT: Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. The goal is to divide your database schema into smaller tables and define relationships between them to increase the clarity, efficiency, and scalability of your database.
+**WHL: We are currently a small software company focusing on developing enterprise apps like ERP, CRM, WMS, TMS, PLM, for a client who running hundreds of bakery shops and two factories. they have about 1000-2000 persons access these system daily. We plan to use Rails 7, and we need to choose a database from PostgreSQL and MySQL. what's your suggestion?**
 
-It's important to note that while normalization helps to reduce data redundancy and improve data integrity, it can sometimes lead to more complex queries due to the need for more JOIN operations. Therefore, in some cases, a certain degree of denormalisation may be acceptable or even beneficial for performance reasons. The best approach depends on the specific use case, including the nature of the data, the types of queries that will be performed, and the performance requirements of the application.
+<mark style="background-color:orange;">**Bard**</mark><mark style="background-color:orange;">: Based on the information you've provided, I would highly recommend PostgreSQL for your scenario.</mark> Here's why:
 
-<mark style="color:green;">**WHL: You know in Ruby, you use array to store multiple objects, and a common place is to iterate the array to manipulate each element in it. You don't use Array for storage but for operation, right? Yet, in a database, the main purpose is to store data with integrity as the first consideration. Therefore, I don't think to have array as a datatype in a database is a good idea.**</mark>
+**PostgreSQL's strengths for your case:**
+
+* **Complex data models:** Enterprise applications like ERP, CRM, WMS, TMS, PLM often have intricate data models with complex relationships and queries. PostgreSQL's advanced data types, functions, and indexing capabilities are well-suited for handling these challenges effectively.
+* **Scalability:** With hundreds of users accessing the system daily and potential for further growth, your database needs to handle increased activity efficiently. PostgreSQL scales very well, offering features like partitioning and replication to manage larger datasets and concurrent access.
+* **Data integrity:** Enterprise applications require stringent data integrity to ensure accurate information and reliable operations. PostgreSQL's ACID transactions with multiversion concurrency control (MVCC) provide stronger data consistency and error protection compared to MySQL's strict ACID mode.
+* **Advanced features:** PostgreSQL offers features like materialized views, full-text search, and JSONB data type, which can be very useful for improving query performance and handling various data formats in your enterprise applications.
+* **Rails integration:** Rails 7 has further optimized its integration with PostgreSQL, making it easier to leverage its advanced features and benefit from its performance enhancements.
+
+**While MySQL might be tempting due to its familiarity and ease of use, its limitations could become increasingly evident for your project:**
+
+* **Complex queries:** MySQL can struggle with intricate queries and joins as your data model grows, potentially impacting performance and developer agility.
+* **Scalability:** As your user base and data volume increase, MySQL could bottleneck under heavy load, requiring more frequent optimization or even sharding, which adds complexity.
+* **Data integrity:** Although MySQL offers ACID transactions, its strict mode can impact performance. PostgreSQL's MVCC provides a more flexible and performant approach to data consistency.
+* **Lack of advanced features:** Some features crucial for complex enterprise applications, like materialized views and advanced data types, are lacking in MySQL.
+
+**Additional considerations:**
+
+* **Team expertise:** If your team already has expertise in MySQL, switching to PostgreSQL might require additional training and investment. However, the long-term benefits of PostgreSQL for your specific needs may outweigh the initial learning curve.
+* **Hosting environment:** Consider your hosting options. Some shared hosting providers might only offer MySQL. However, with increasing popularity of PostgreSQL, managed hosting options for PostgreSQL are readily available and often outperform shared hosting solutions.
+
+**Conclusion:**
+
+Based on your project's requirements and future growth potential, PostgreSQL seems like a wiser choice compared to MySQL. It offers enhanced data modeling capabilities, superior scalability, robust data integrity, and advanced features ideal for complex enterprise applications. While you might need to invest in some initial learning or hosting adjustments, the long-term benefits and increased flexibility outweigh the drawbacks.
+
+Ultimately, the final decision rests with you. I recommend thoroughly evaluating both options based on your specific needs, team expertise, and hosting environment. However, based on the information you've provided, PostgreSQL presents a stronger solution for your ambitious goals with enterprise applications.
+
+I hope this helps! Let me know if you have any further questions or need help exploring specific considerations for your project.
+
+
+
+***
+
+
+
+## About using array in database
+
+**WHL: You know in Ruby, you use array to store multiple objects, and a common place is to iterate the array to manipulate each element in it. **<mark style="background-color:red;">**You don't use Array for storage but for operation**</mark>**, right? Yet, in a database, the main purpose is to store data with integrity as the first consideration. Therefore, **<mark style="background-color:red;">**I don't think to have array as a datatype in a database is a good idea.**</mark>
 
 **ChatGPT**: You bring up an excellent point. The data storage needs of an application are often quite different from the data manipulation needs within the application logic, and this is a key distinction to keep in mind when considering whether to use array data types in a database.
 
@@ -30,7 +66,7 @@ For example, if you're storing a list of tags as an array in a blog post record,
 
 
 
-<mark style="color:green;">**WHL: Plus, with the power of modern computing hardwares, more complex queries due to the need for more JOIN operations, is not a problem at all. Right?**</mark>
+**WHL: Plus, with the power of modern computing hardwares, more complex queries due to the need for more JOIN operations, is not a problem at all. Right?**
 
 Indeed, modern hardware is increasingly capable of handling complex queries with multiple JOIN operations. Query optimizers in contemporary database management systems are also very sophisticated, and they can often process complex queries with remarkable efficiency.
 
@@ -40,7 +76,7 @@ While JOIN operations can be computationally intensive, a well-designed database
 
 So, while it's true that modern hardware is increasingly capable, and that more complex queries involving JOINs are often not a problem, it's still important to design your database schema and your queries with care, taking into account the specific needs and constraints of your application.
 
-1 / 1
+
 
 **WHL: With this under belt, data integrity is more important than query efficiency in an enterprise and money or business deals environment.**
 
@@ -50,7 +86,7 @@ This is one of the reasons why relational databases, which have strong support f
 
 Query efficiency is also important, of course, because it affects the performance and responsiveness of your applications. However, it should not come at the expense of data integrity. A well-designed database and properly optimized queries can usually provide both good performance and strong data integrity.
 
-In the context of your original question about choosing between MySQL and PostgreSQL for Rails 7 applications, <mark style="background-color:orange;">both databases have strong support for data integrity and can be a good choice depending on your specific needs</mark>. <mark style="background-color:red;">PostgreSQL's advanced features and closer alignment with Rails philosophies may offer some advantages in terms of developer experience and flexibility</mark>, but <mark style="background-color:orange;">both databases are capable and mature choices for enterprise applications</mark>.
+In the context of your original question about choosing between MySQL and PostgreSQL for Rails 7 applications, both databases have strong support for data integrity and can be a good choice depending on your specific needs. <mark style="background-color:orange;">PostgreSQL's advanced features and closer alignment with Rails philosophies may offer some advantages in terms of developer experience and flexibility</mark>, but <mark style="background-color:orange;">both databases are capable and mature choices for enterprise applications</mark>.
 
 
 
@@ -189,7 +225,7 @@ PostGIS Extension: If you're working with geospatial data, Active Record can tak
 
 #### Using Arrays in PostgreSQL?
 
-WHL: Let' s consent it together with Rails in mind. Since Ruby has array and Rails use array a lot. Is it more compatible to support array in database?
+**WHL: Let's consent it together with Rails in mind. Since Ruby has array and Rails use array a lot. Is it more compatible to support array in database?**
 
 ChatGPT: From a programming perspective, the ability to use arrays natively in PostgreSQL can be attractive to Rails developers due to the ease and familiarity of working with arrays in Ruby. Here are some factors to consider:
 
